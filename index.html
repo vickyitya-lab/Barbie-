@@ -398,6 +398,37 @@
     .about-stats { grid-template-columns: 1fr 1fr; }
     section { padding: 4rem 1.2rem; }
   }
+
+  .payment-methods { display: flex; flex-direction: column; gap: 0.7rem; margin-top: 0.5rem; }
+  .pay-link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .pay-link:hover, .pay-link:active {
+    background: rgba(201,168,76,0.12) !important;
+    border-color: var(--gold) !important;
+    transform: translateY(-2px);
+  }
+  .pay-item {
+    display: flex; align-items: center; gap: 0.8rem;
+    background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15);
+    padding: 0.7rem 1rem;
+  }
+  .pay-icon { font-size: 1.1rem; }
+  .pay-label { display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); opacity: 0.8; }
+  .pay-val { display: block; font-size: 0.92rem; color: var(--cream); font-weight: 500; margin-top: 0.1rem; }
+  .social-links { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.5rem; }
+  .social-btn {
+    display: flex; align-items: center; gap: 0.7rem;
+    padding: 0.65rem 1rem; font-size: 0.82rem;
+    text-decoration: none; font-weight: 500; letter-spacing: 0.02em;
+    border: 1px solid rgba(201,168,76,0.2);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .social-btn.ig { color: #E1306C; }
+  .social-btn.tt { color: #fff; }
+  .social-btn:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.4); }
 </style>
 </head>
 <body>
@@ -687,8 +718,50 @@
         <div class="contact-item">📧 <a href="mailto:Sandrickmbah29@gmail.com">Sandrickmbah29@gmail.com</a></div>
         <div class="contact-item">📱 <a href="sms:+12026005020">+1 (202) 600-5020</a></div>
 
-        <h3>💳 How to pay</h3>
-        <p>Cash, Cash App, Apple Pay, and Zelle all work!</p>
+        <h3>💳 Tap to pay your deposit</h3>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:0.8rem;">Tap any option below and it will open the app for you automatically!</p>
+        <div class="payment-methods">
+          <a href="zelle://send?phone=2026005020" class="pay-item pay-link">
+            <span class="pay-icon">💜</span>
+            <div>
+              <span class="pay-label">Zelle</span>
+              <span class="pay-val">202-600-5020 &rarr; tap to open Zelle</span>
+            </div>
+          </a>
+          <a href="cashme://cash.app/pay/zani26" class="pay-item pay-link" onclick="setTimeout(()=>{window.location.href='https://cash.app/$zani26'},300);return false;">
+            <span class="pay-icon">💚</span>
+            <div>
+              <span class="pay-label">Cash App</span>
+              <span class="pay-val">$zani26 &rarr; tap to open Cash App</span>
+            </div>
+          </a>
+          <a href="shoebox://send?phone=2026005020" class="pay-item pay-link" onclick="setTimeout(()=>{window.location.href='https://applepay.apple.com'},300);return false;">
+            <span class="pay-icon">🍎</span>
+            <div>
+              <span class="pay-label">Apple Pay</span>
+              <span class="pay-val">202-600-5020 &rarr; tap to open Apple Pay</span>
+            </div>
+          </a>
+          <div class="pay-item">
+            <span class="pay-icon">💵</span>
+            <div>
+              <span class="pay-label">Cash</span>
+              <span class="pay-val">Accepted in person at appointment</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>📱 Follow us</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/blabk_barbies_crown_creations" target="_blank" class="social-btn ig">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @blabk_barbies_crown_creations
+          </a>
+          <a href="https://www.tiktok.com/@blackbarbiebraids" target="_blank" class="social-btn tt">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg>
+            @blackbarbiebraids
+          </a>
+        </div>
       </div>
 
       <div>
@@ -795,6 +868,8 @@
     <a href="javascript:void(0)" onclick="document.getElementById('policies').scrollIntoView({behavior:'smooth'})">Policies</a>
     <a href="javascript:void(0)" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book</a>
     <a href="mailto:Sandrickmbah29@gmail.com">Email</a>
+    <a href="https://www.instagram.com/blabk_barbies_crown_creations" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@blackbarbiebraids" target="_blank">TikTok</a>
   </div>
   <p class="footer-copy">© 2026 Black Barbie's Crown Creations. Located in Lanham, MD 20706</p>
 </footer>
